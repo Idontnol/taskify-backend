@@ -10,7 +10,10 @@ const app = express();
 // Middleware
 app.use(express.json());  // Parse incoming JSON requests
 app.use(cors());  // Enable Cross-Origin Resource Sharing
-
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  next();
+});
 // // Database connection (optional, if using MongoDB)
 const connectToDb=async()=>{
   try{

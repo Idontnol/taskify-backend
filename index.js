@@ -14,6 +14,7 @@ app.use(cors());  // Enable Cross-Origin Resource Sharing
 // // Database connection (optional, if using MongoDB)
 const connectToDb=async()=>{
   try{
+    console.log(process.env.MONGO_URI);
    mongoose.connect(process.env.MONGO_URI,{
       useNewUrlParser:true,
       useUnifiedTopology:true,
